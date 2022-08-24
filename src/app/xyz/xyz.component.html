@@ -1,0 +1,22 @@
+<input type="text" #name> 
+<button (click)="addname(name.value)" class="btn btn-success">Submit</button>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th scope="col">First</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+      <tr *ngFor="let item of data let i=index ">
+        <td>{{i+1}}</td>
+        <td>{{item}}</td>
+        <td (click)="delete(i)" style="color: red;">Delete</td>
+      </tr>
+     
+    </tbody>
+  </table>
