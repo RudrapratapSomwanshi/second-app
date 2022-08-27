@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SecondService } from '../second.service';
 
 @Component({
   selector: 'app-xyz',
@@ -9,8 +10,9 @@ export class XyzComponent implements OnInit {
   newuser=false
 data:any=[]
 
-  constructor() { }
+  constructor( private secondService:SecondService) { }
   ngOnInit(): void {
+    this.get()
   }
 
 
@@ -20,6 +22,11 @@ data:any=[]
   delete(i:number){
     this.data.splice(i,1)
   }
-
+get(){
+  this.secondService.getFollowupWithoutLimit().subscribe(result=>{
+    console.log(result,"Result");
+    
+  })
+}
 
 }
